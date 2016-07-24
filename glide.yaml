@@ -1,0 +1,6 @@
+package: github.com/jqs7/progress-api
+import:
+- package: github.com/gin-gonic/gin
+- package: gopkg.in/go-playground/validator.v8
+- package: github.com/spf13/viper
+- package: github.com/gin-gonic/contrib
