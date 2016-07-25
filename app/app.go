@@ -7,19 +7,19 @@ import (
 	"github.com/spf13/viper"
 )
 
-var v struct {
+var config struct {
 	v *viper.Viper
 	sync.Once
 }
 
 func Config() *viper.Viper {
-	v.Do(func() {
-		v.v = viper.New()
-		v.v.SetConfigName("app")
-		v.v.AddConfigPath(".")
-		v.v.WatchConfig()
-		v.v.ReadInConfig()
-		v.v.OnConfigChange(func(fsnotify.Event) {})
+	config.Do(func() {
+		config.v = viper.New()
+		config.v.SetConfigName("app")
+		config.v.AddConfigPath(".")
+		config.v.WatchConfig()
+		config.v.ReadInConfig()
+		config.v.OnConfigChange(func(fsnotify.Event) {})
 	})
-	return v.v
+	return config.v
 }
